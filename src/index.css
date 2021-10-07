@@ -1,0 +1,56 @@
+:root {
+    /* FONTS */
+
+    --main-font: 'Source Sans Pro', sans-serif;
+    --title-font: 'Rubik Mono One', sans-serif;
+
+    /* COLORS */
+    --main-white: #fdfdfd;
+    --main-gray: #6d6b6b;
+    --medium-gray: #aeaeae;
+    --ultralight-gray: #d1d1d170;
+    --light-gray: #d1d1d1;
+    --main-dark: #303030;
+    --high-dark: #202020;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: var(--main-font);
+    color: var(--main-dark);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 7rem;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+@media (min-width: 600px) {
+    .container {
+        padding-top: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding-top: 7rem;
+    }
+}
