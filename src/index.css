@@ -1,7 +1,7 @@
 :root {
     /* FONTS */
 
-    --main-font: 'Source Sans Pro', sans-serif;
+    --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --title-font: 'Rubik Mono One', sans-serif;
 
     /* COLORS */
@@ -27,7 +27,7 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: var(--main-font);
+    font-family: --main-font;
     color: var(--main-dark);
 }
 

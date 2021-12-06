@@ -107,8 +107,12 @@ export const About = () => {
                 <p>
                     Hola! Mi nombre es <b>José Luis Barbosa Cepeda</b>, Tengo
                     <b> 21 años </b>
-                    de edad, soy un estudiante autodidacta con 1 año de
-                    experiencia en el Desarrollo web frontend.
+                    de edad, soy un estudiante autodidacta con casi 2 años de
+                    experiencia en el Desarrollo web. <br />
+                    Actualmente me encuentro trabajando en proyectos personales
+                    para subir en este mismo sitio web mientras a la par sigo
+                    estudiando para mejorar y aprender nuevas tecnologias.
+                    <br />
                 </p>
                 <TecSkills>
                     <h3>Habilidades Tecnicas</h3>

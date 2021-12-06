@@ -5,11 +5,10 @@ const ProyectCard = styled.article`
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 90%;
+    width: 85%;
     max-width: 460px;
     min-height: 100px;
     margin: 1.5rem;
-    padding: 1rem;
     border-radius: 8px;
     transition: transform 0.2s;
     background: var(--main-white);
@@ -20,41 +19,37 @@ const ProyectCard = styled.article`
     &:hover {
         transform: scale(1.06);
     }
-
-    & > h3 {
-        margin-top: 1rem;
-        text-align: center;
-        font-size: 3rem;
-        font-weight: bold;
-        font-family: var(--main-font);
-    }
 `
 
 const Info = styled.div`
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     align-items: center;
 
+    & > h3 {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 2.7rem;
+        font-weight: bold;
+        font-family: var(--main-font);
+    }
     & > p {
         width: 80%;
         margin: 0 auto;
         margin: 0 0.5rem;
         text-align: center;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         color: var(--high-dark);
     }
 
     .image-container {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin-left: 1rem;
-        background: var(--ultralight-gray);
+        width: 100%;
+        height: 100%;
         & > img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+            width: 100%;
+            max-height: 15rem;
             object-fit: cover;
             object-position: center;
         }
@@ -71,6 +66,8 @@ const Info = styled.div`
 const Footer = styled.footer`
     width: 100%;
     display: flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: space-evenly;
     margin-bottom: 2rem;
 `
@@ -79,11 +76,18 @@ const Skills = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 50%;
+    width: 80%;
+    margin: 1rem 0;
     & > i {
         font-size: 3rem;
         padding: 0.5rem;
     }
+
+    & > .styled {
+        font-size: 2.3rem;
+        padding: 0 0.3rem;
+    }
+
     & .fa-html5 {
         color: #ff8a3c;
     }
@@ -103,13 +107,20 @@ const Skills = styled.div`
     & .ri-npmjs-line {
         color: #94cd1d;
     }
+
+    & .fa-git-alt {
+        color: #ff8048;
+    }
+    & .fa-sass {
+        color: #fe3896;
+    }
 `
 
 const Links = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 100%;
     & > a {
         padding: 0.4rem 1rem;
         margin: 0 0.5rem;
@@ -134,6 +145,12 @@ export const Card = ({ title, img, desc, skills, repo, web }) => {
             return 'ri-reactjs-fill'
         } else if (skill === 'npm') {
             return 'ri-npmjs-line'
+        } else if (skill === 'git') {
+            return 'fab fa-git-alt'
+        } else if (skill === 'github') {
+            return 'ri-github-fill'
+        } else if (skill === 'sass') {
+            return 'fab fa-sass'
         } else {
             return null
         }
@@ -141,11 +158,11 @@ export const Card = ({ title, img, desc, skills, repo, web }) => {
 
     return (
         <ProyectCard>
-            <h3>{title}</h3>
             <Info>
                 <div className="image-container">
                     <img src={img} alt={title} />
                 </div>
+                <h3>{title}</h3>
                 <p>{desc}</p>
             </Info>
             <Footer>
@@ -155,9 +172,15 @@ export const Card = ({ title, img, desc, skills, repo, web }) => {
                         return (
                             <i
                                 key={skill}
-                                className={skillFiltered}
+                                className={
+                                    skill === 'styled-components'
+                                        ? 'styled'
+                                        : skillFiltered
+                                }
                                 title={skill}
-                            ></i>
+                            >
+                                {skill === 'styled-components' && '💅🏼'}
+                            </i>
                         )
                     })}
                 </Skills>
