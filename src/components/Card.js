@@ -5,8 +5,6 @@ const ProyectCard = styled.article`
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 85%;
-    max-width: 460px;
     min-height: 100px;
     margin: 1.5rem;
     border-radius: 8px;
@@ -114,6 +112,10 @@ const Skills = styled.div`
     & .fa-sass {
         color: #fe3896;
     }
+
+    & .ri-fire-fill {
+        color: #ffa714;
+    }
 `
 
 const Links = styled.div`
@@ -143,6 +145,9 @@ export const Card = ({ title, img, desc, skills, repo, web }) => {
             return 'fab fa-js'
         } else if (skill === 'react') {
             return 'ri-reactjs-fill'
+        } else if (skill === 'firebase') {
+            return 'ri-fire-fill'
+        } else if (skill === 'git') {
         } else if (skill === 'npm') {
             return 'ri-npmjs-line'
         } else if (skill === 'git') {

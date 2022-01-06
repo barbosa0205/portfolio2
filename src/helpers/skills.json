@@ -20,6 +20,11 @@
         "color": "reactColor"
     },
     {
+        "name": "Firebase",
+        "iconClass": "ri-fire-fill",
+        "color": "firebaseColor"
+    },
+    {
         "name": "Git",
         "iconClass": "fab fa-git-alt",
         "color": "gitColor"
@@ -37,5 +42,10 @@
     {
         "name": "Styled Components",
         "iconClass": "styled-components"
+    },
+    {
+        "name": "SASS",
+        "iconClass": "fab fa-sass",
+        "color": "sassColor"
     }
 ]

@@ -41,8 +41,15 @@ const SkillContainer = styled.div`
             &.npmColor {
                 color: #94cd1d;
             }
+            &.firebaseColor {
+                color: #ffa714;
+            }
             &.fa-bootstrap {
                 color: #ff79de;
+            }
+
+            &.sassColor {
+                color: #fe3896;
             }
         }
     }

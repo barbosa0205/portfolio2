@@ -79,7 +79,7 @@ export const Home = () => {
         <HomeContainer id="home" className="container">
             <MainContainer>
                 <TitleContainer>
-                    <Title text="Hola! Soy José Luis Barbosa, Desarrollador Web FrontEnd" />
+                    <Title text="Hola! Soy José Luis Barbosa, Programador Web FrontEnd" />
                 </TitleContainer>
                 <ImageContainer>
                     <img src={mainLogo} alt="main-logo" />

@@ -106,9 +106,10 @@ export const About = () => {
                 <img src={profileImg} alt="" />
                 <p>
                     Hola! Mi nombre es <b>José Luis Barbosa Cepeda</b>, Tengo
-                    <b> 21 años </b>
+                    <b> 22 años </b>
                     de edad, soy un estudiante autodidacta con casi 2 años de
-                    experiencia en el Desarrollo web. <br />
+                    experiencia en el Desarrollo web del lado del Frontend.{' '}
+                    <br />
                     Actualmente me encuentro trabajando en proyectos personales
                     para subir en este mismo sitio web mientras a la par sigo
                     estudiando para mejorar y aprender nuevas tecnologias.

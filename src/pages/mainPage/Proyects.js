@@ -57,12 +57,12 @@ const ProyectsContainer = styled.div`
 
 const ProyectGridCards = styled.section`
     width: 100%;
-    max-width: 1400px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 480px));
+    grid-template-rows: auto;
+    gap: 1rem;
     justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 3rem;
-    margin: 0 auto;
+    align-items: center;
 `
 
 // const proyectsData = [
@@ -111,7 +111,7 @@ export const Proyects = () => {
 
             <ProyectGridCards>
                 {proyectsData.map(proyect => {
-                    if (proyect.id <= 3) {
+                    if (proyect.id <= 4) {
                         return (
                             <Card
                                 key={proyect.id}
