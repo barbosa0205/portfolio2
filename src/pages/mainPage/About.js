@@ -128,7 +128,7 @@ export const About = () => {
                         ))}
                     </div>
                     <div className="buttons-container">
-                        <a href="/CVOCT.pdf" download>
+                        <a href="/CV-esp.pdf" download>
                             Descargar CV
                         </a>
                     </div>
