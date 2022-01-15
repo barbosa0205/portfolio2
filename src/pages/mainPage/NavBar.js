@@ -7,6 +7,7 @@ const NavBarMovil = styled.nav`
     width: 100%;
     height: 5rem;
     position: fixed;
+    grid-area: navbar;
     top: 0;
     left: 0;
     background-color: #ffffff30;
@@ -52,8 +53,9 @@ const Sidebar = styled.nav`
     }
 
     @media (min-width: 600px) {
+        position: sticky;
         left: 0;
-        width: 20%;
+        height: 100%;
         max-width: 120px;
 
         .close-container {
@@ -63,7 +65,6 @@ const Sidebar = styled.nav`
 
     @media (min-width: 1024px) {
         display: flex;
-        justify-content: center;
         max-width: 100%;
         width: 100%;
         height: 5rem;
@@ -86,7 +87,6 @@ const NightContainer = styled.div`
 const LinksContainer = styled.div`
     @media (min-width: 1024px) {
         display: flex;
-        width: 100%;
         height: 100%;
     }
 `
@@ -98,6 +98,7 @@ const LinkContainer = styled.div`
     height: 60px;
     border-bottom: 1px solid var(--ultralight-gray);
     @media (min-width: 1024px) {
+        width: 12rem;
         border-bottom: none;
         border-right: 1px solid var(--ultralight-gray);
         &:first-child {

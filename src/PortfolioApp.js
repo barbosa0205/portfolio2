@@ -7,13 +7,30 @@ import { NavBar } from './pages/mainPage/NavBar'
 import { Proyects } from './pages/mainPage/Proyects'
 
 const MainContainer = styled.div`
+    display: grid;
+    grid-template-areas:
+        'navbar'
+        'home'
+        'about'
+        'proyects'
+        'contact';
     width: 100%;
     background: #fff;
     @media (min-width: 600px) {
+        grid-template-areas:
+            'navbar home'
+            'navbar about'
+            'navbar proyects'
+            'navbar contact';
         position: relative;
-        padding-left: 20%;
     }
     @media (min-width: 1024px) {
+        grid-template-areas:
+            'navbar'
+            'home'
+            'about'
+            'proyects'
+            'contact';
         padding: 0;
         margin: 0 auto;
     }
@@ -27,9 +44,6 @@ const MainContainer = styled.div`
 const AppContainer = styled.div`
     width: 100%;
     min-width: 320px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     @media (min-width: 1280px) {
         background: #eeeeee;

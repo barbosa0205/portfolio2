@@ -13,7 +13,7 @@ export const proyectsData = [
         img: portfolioImg,
         skills: ['react', 'js', 'styled-components', 'npm', 'git', 'github'],
         repo: 'https://github.com/barbosa0205/portfolio2',
-        web: 'https://barbosa0205.netlify.app/',
+        web: 'https://portfolio-cc5a8.web.app/',
     },
     {
         id: 2,

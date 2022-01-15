@@ -4,6 +4,10 @@ import wave from '../../assets/svg/wave.svg'
 // import { EmailForm } from '../../components/EmailForm'
 // import { Modal } from '../../components/Modal'
 
+const FooterContainer = styled.section`
+    grid-area: contact;
+`
+
 const Wave = styled.img`
     width: 100%;
     position: relative;
@@ -59,7 +63,7 @@ const Footer = styled.footer`
 export const Contact = () => {
     const [showEmailForm, setShowEmailForm] = useState(false)
     return (
-        <>
+        <FooterContainer>
             <Wave src={wave} alt="" />
             <Footer id="contact">
                 <p>CONTACTAME</p>
@@ -89,6 +93,6 @@ export const Contact = () => {
                     {<EmailForm showEmailForm={showEmailForm} />}
                 </Modal>
             )} */}
-        </>
+        </FooterContainer>
     )
 }

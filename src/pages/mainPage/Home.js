@@ -7,6 +7,7 @@ const HomeContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    grid-area: home;
     max-height: 100rem;
     margin-top: 3rem;
     @media (min-height: 1200px) {

@@ -12,6 +12,7 @@ const AboutContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    grid-area: about;
     @media (min-height: 1200px) {
         min-height: 0;
     }
