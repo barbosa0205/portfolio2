@@ -5,8 +5,7 @@ const ProyectCard = styled.article`
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-height: 100px;
-    margin: 1.5rem;
+    margin: 2rem;
     border-radius: 8px;
     transition: transform 0.2s;
     background: var(--main-white);

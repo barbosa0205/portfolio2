@@ -6,13 +6,9 @@ import mainLogo from '../../assets/svg/Coding-rafiki-black.svg'
 const HomeContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     grid-area: home;
-    max-height: 100rem;
+    margin: 0 auto;
     margin-top: 3rem;
-    @media (min-height: 1200px) {
-        min-height: 0;
-    }
 `
 
 const MainContainer = styled.div`
@@ -24,7 +20,23 @@ const MainContainer = styled.div`
     }
 `
 const TitleContainer = styled.div`
-    margin-left: 1rem;
+    margin-left: 2rem;
+
+    & > .jobTitle,
+    .cheer {
+        width: 100%;
+        font-size: 3rem;
+        font-weight: 700;
+        text-align: right;
+        padding-right: 3rem;
+        color: var(--main-dark);
+        text-shadow: -0.3rem 0.2rem 0 var(--light-gray);
+    }
+
+    & > .cheer {
+        text-align: start;
+    }
+
     @media (min-width: 600px) {
         padding: 0px;
         margin-top: 0px;
@@ -80,7 +92,9 @@ export const Home = () => {
         <HomeContainer id="home" className="container">
             <MainContainer>
                 <TitleContainer>
-                    <Title text="Hola! Soy José Luis Barbosa, Programador Web FrontEnd" />
+                    <p className="cheer">Hola, mi nombre es</p>
+                    <Title text="José Luis Barbosa Cepeda" />
+                    <p className="jobTitle">Programador Web Frontend</p>
                 </TitleContainer>
                 <ImageContainer>
                     <img src={mainLogo} alt="main-logo" />

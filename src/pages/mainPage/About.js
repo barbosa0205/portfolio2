@@ -18,7 +18,7 @@ const AboutContainer = styled.div`
     }
 `
 const Container = styled.div`
-    width: 90%;
+    width: 95%;
     max-width: 700px;
     margin: 0 auto;
     display: flex;
@@ -34,15 +34,26 @@ const Container = styled.div`
         border-radius: 50%;
     }
 
-    & > p {
+    & > p,
+    b,
+    li {
         margin-top: 2rem;
         font-family: var(--main-font);
         font-size: 2rem;
     }
+
+    & > ul > li {
+        margin-top: 0.5rem;
+    }
+
     & > p:first-child::first-letter {
         font-size: 8rem;
         font-weight: bold;
         line-height: 0.1;
+    }
+
+    & > ul > li {
+        list-style: square;
     }
 `
 const TecSkills = styled.div`
@@ -106,16 +117,22 @@ export const About = () => {
             <Container>
                 <img src={profileImg} alt="" />
                 <p>
-                    Hola! Mi nombre es <b>José Luis Barbosa Cepeda</b>, Tengo
-                    <b> 22 años </b>
-                    de edad, soy un estudiante autodidacta con casi 2 años de
-                    experiencia en el Desarrollo web del lado del Frontend.{' '}
+                    Programador Web Frontend desde el 2020, Soy nacido en
+                    Tamaulipas MX, Estudiante autodidacta apasionado por la
+                    tecnologia.
                     <br />
-                    Actualmente me encuentro trabajando en proyectos personales
-                    para subir en este mismo sitio web mientras a la par sigo
-                    estudiando para mejorar y aprender nuevas tecnologias.
                     <br />
                 </p>
+                <b>utilizo de manera profesional las siguientes tecnologias:</b>
+                <ul>
+                    <li>html5, css3, js como tecnologia base</li>
+                    <li> ReactJS como libreria para la creacion de UI</li>
+                    <li> SCSS como preprocesador</li>
+                    <li>npm/yarn para la gestion de paquetes</li>
+                    <li>Git como control de versiones </li>
+                    <li>GitHub para alojar mis proyectos</li>
+                </ul>
+                <br />
                 <TecSkills>
                     <h3>Habilidades Tecnicas</h3>
                     <div className="skill-container">

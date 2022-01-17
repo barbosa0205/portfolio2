@@ -60,8 +60,6 @@ const ProyectGridCards = styled.section`
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 480px));
-    grid-template-rows: auto;
-    gap: 1rem;
     justify-content: center;
     align-items: center;
 `
