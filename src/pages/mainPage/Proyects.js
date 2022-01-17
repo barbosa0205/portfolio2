@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 const ProyectsContainer = styled.div`
     width: 100%;
-    max-width: 100rem;
+    max-width: 120rem;
     min-height: 100vh;
     margin: 0 auto;
     grid-area: proyects;
