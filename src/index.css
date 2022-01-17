@@ -27,7 +27,7 @@ html {
 
 body {
     font-size: 1.6rem;
-    font-family: --main-font;
+    font-family: var(--main-font);
     color: var(--main-dark);
 }
 
