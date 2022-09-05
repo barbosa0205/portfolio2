@@ -1,11 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Title } from '../../components/Title'
 
 import profileImg from '../../assets/images/profile.png'
 import { Skill } from '../../components/Skill'
-
-import skills from '../../helpers/skills.json'
 
 const AboutContainer = styled.div`
   min-width: 100%;
@@ -111,6 +109,20 @@ const TecSkills = styled.div`
 `
 
 export const About = () => {
+  const [skills, setSkills] = useState([])
+
+  useEffect(() => {
+    ;(async () => {
+      try {
+        const resp = await fetch('http://www.localhost:3001/api/technologies')
+        const { data } = await resp.json()
+        setSkills(data)
+      } catch (error) {
+        console.log('error: ', error.message)
+      }
+    })()
+  }, [])
+
   return (
     <AboutContainer id='about' className='container'>
       <Title text='Sobre Mi' center />
@@ -127,14 +139,15 @@ export const About = () => {
         <TecSkills>
           <h3>Habilidades Tecnicas</h3>
           <div className='skill-container'>
-            {skills.map((skill) => (
-              <Skill
-                key={skill.name}
-                iconClass={skill.iconClass}
-                name={skill.name}
-                color={skill?.color}
-              />
-            ))}
+            {skills &&
+              skills.map((skill) => (
+                <Skill
+                  key={skill.name}
+                  iconClass={skill.icon}
+                  name={skill.name}
+                  color={skill.color}
+                />
+              ))}
           </div>
           <div className='buttons-container'>
             <a href='/CV.pdf' download>
