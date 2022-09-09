@@ -129,7 +129,7 @@ export const About = () => {
     <AboutContainer id='about' className='container'>
       <Title text='Sobre Mi' center />
       <Container>
-        <img src={profileImg} alt='' />
+        <img src={profileImg} alt='profile' />
         <p>
           Soy un Programador Web Frontend con conocimientos en Backend, desde el
           2020 me aventure a estudiar de manera autodidacta las diferentes
