@@ -114,7 +114,9 @@ export const About = () => {
   useEffect(() => {
     ;(async () => {
       try {
-        const resp = await fetch('http://www.localhost:3001/api/technologies')
+        const resp = await fetch(
+          'https://portfolio-backend-qaq3.onrender.com/api/technologies'
+        )
         const { data } = await resp.json()
         setSkills(data)
       } catch (error) {
@@ -142,7 +144,7 @@ export const About = () => {
             {skills &&
               skills.map((skill) => (
                 <Skill
-                  key={skill.name}
+                  key={skill._id}
                   iconClass={skill.icon}
                   name={skill.name}
                   color={skill.color}

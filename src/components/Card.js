@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const ProyectCard = styled.article`
@@ -84,44 +85,6 @@ const Skills = styled.div`
     font-size: 2.3rem;
     padding: 0 0.3rem;
   }
-
-  & .fa-html5 {
-    color: #ff8a3c;
-  }
-
-  & .fa-css3-alt {
-    color: #1aaeff;
-  }
-
-  & .fa-js {
-    color: #ffd52d;
-  }
-  & .ri-reactjs-fill {
-    color: #0d59a6;
-    font-weight: 500;
-  }
-
-  & .ri-npmjs-line {
-    color: #94cd1d;
-  }
-
-  & .fa-git-alt {
-    color: #ff8048;
-  }
-  & .fa-sass {
-    color: #fe3896;
-  }
-
-  & .ri-fire-fill {
-    color: #ffa714;
-  }
-
-  & .ri-leaf-fill {
-    color: #00853c;
-  }
-  & .ri-text {
-    color: #3bd59c;
-  }
 `
 
 const Links = styled.div`
@@ -138,43 +101,25 @@ const Links = styled.div`
     text-decoration: none;
     border-radius: 3px;
     color: var(--main-white);
+    font-size: 1.7rem;
+  }
+
+  & > button {
+    cursor: pointer;
+    border: none;
+    padding: 0.4rem 1.1rem;
+    margin: 0 0.5rem;
+    margin-right: 1rem;
+    background: var(--main-dark);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 3px;
+    color: var(--main-white);
+    font-size: 1.7rem;
   }
 `
 
-export const Card = ({ title, img, desc, skills, repo, web }) => {
-  const compareSkills = (skill) => {
-    if (skill === 'html') {
-      return 'fab fa-html5'
-    } else if (skill === 'css') {
-      return 'fab fa-css3-alt'
-    } else if (skill === 'js') {
-      return 'fab fa-js'
-    } else if (skill === 'react') {
-      return 'ri-reactjs-fill'
-    } else if (skill === 'nextjs') {
-      return 'ri-netflix-fill'
-    } else if (skill === 'mongodb') {
-      return 'ri-leaf-fill'
-    } else if (skill === 'tailwindcss') {
-      return 'ri-text'
-    } else if (skill === 'firebase') {
-      return 'ri-fire-fill'
-    } else if (skill === 'git') {
-    } else if (skill === 'npm') {
-      return 'ri-npmjs-line'
-    } else if (skill === 'git') {
-      return 'fab fa-git-alt'
-    } else if (skill === 'github') {
-      return 'ri-github-fill'
-    } else if (skill === 'sass') {
-      return 'fab fa-sass'
-    } else if (skill === 'socket.io') {
-      return 'ri-compass-line'
-    } else {
-      return null
-    }
-  }
-
+export const Card = ({ id, title, img, desc, skills, repo, web }) => {
   return (
     <ProyectCard>
       <Info>
@@ -187,17 +132,15 @@ export const Card = ({ title, img, desc, skills, repo, web }) => {
       <Footer>
         <Skills>
           {skills.map((skill) => {
-            const skillFiltered = compareSkills(skill)
             return (
               <i
-                key={skill}
-                className={
-                  skill === 'styled-components' ? 'styled' : skillFiltered
-                }
-                title={skill}
-              >
-                {skill === 'styled-components' && '💅🏼'}
-              </i>
+                className={`${skill.icon} `}
+                style={{
+                  color: `${skill.color}`,
+                }}
+                key={skill._id}
+                title={skill.name}
+              ></i>
             )
           })}
         </Skills>
@@ -218,6 +161,9 @@ export const Card = ({ title, img, desc, skills, repo, web }) => {
           >
             Web
           </a>
+          <Link title={`ver más sobre el proyecto`} to={`/proyect/${id}`}>
+            Más
+          </Link>
         </Links>
       </Footer>
     </ProyectCard>

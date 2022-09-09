@@ -14,14 +14,10 @@ const HomeContainer = styled.div`
 const MainContainer = styled.div`
   width: 100%;
   margin-top: 4rem;
-  @media (min-width: 1024px) {
-    display: flex;
-    align-items: center;
-  }
 `
 const TitleContainer = styled.div`
   margin-left: 2rem;
-
+  grid-area: title;
   & > .jobTitle,
   .cheer {
     width: 100%;
@@ -48,13 +44,12 @@ const TitleContainer = styled.div`
   }
 `
 const ImageContainer = styled.div`
-  max-width: 62rem;
+  max-width: 80rem;
   margin: 0 auto;
   @media (min-width: 1024px) {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
     & > img {
       max-width: 800px;
     }

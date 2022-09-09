@@ -1,20 +1,18 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { ProyectPage } from '../pages/proyectsPage/ProyectPage'
 import { ProyectsPage } from '../pages/proyectsPage/ProyectsPage'
 import { PortfolioApp } from '../PortfolioApp'
 export const AppRouter = () => {
-    return (
-        <Router>
-            <div>
-                <Switch>
-                    <Route
-                        exact
-                        path="/all-proyects"
-                        component={ProyectsPage}
-                    />
-                    <Route path="/" component={PortfolioApp} />
-                </Switch>
-            </div>
-        </Router>
-    )
+  return (
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path='/all-proyects' component={ProyectsPage} />
+          <Route exact path='/proyect/:id' component={ProyectPage} />
+          <Route path='/' component={PortfolioApp} />
+        </Switch>
+      </div>
+    </Router>
+  )
 }

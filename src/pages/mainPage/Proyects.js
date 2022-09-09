@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Card } from '../../components/Card'
 import { Title } from '../../components/Title'
-
-import { proyectsData } from '../../helpers/proyectsData'
 import { Link } from 'react-router-dom'
+import { About } from './About'
 
 const ProyectsContainer = styled.div`
   width: 100%;
@@ -66,60 +65,39 @@ const ProyectGridCards = styled.section`
   align-items: center;
 `
 
-// const proyectsData = [
-//     {
-//         id: 1,
-//         title: 'Portafolio',
-//         desc: 'Mi portafolio, donde estas leyendo esto tambien es un proyecto! 🎉',
-//         img: portfolioImg,
-//         skills: ['react', 'js', 'css', 'html', 'npm'],
-//         repo: 'https://github.com/barbosa0205/Minimalist-Calculator',
-//         web: 'https://barbosa0205.github.io/Minimalist-Calculator/',
-//     },
-//     {
-//         id: 2,
-//         title: 'Minimalist Calc',
-//         desc: 'Una calculadora con un diseño moderno y minimalista 📱',
-//         img: calcImg,
-//         skills: ['html', 'css', 'js'],
-//         repo: 'https://github.com/barbosa0205/Minimalist-Calculator',
-//         web: 'https://barbosa0205.github.io/Minimalist-Calculator/',
-//     },
-//     {
-//         id: 3,
-//         title: 'Pokedex',
-//         desc: 'Una pequeña pero grandiosa pokedex que te dara un vistazo a las caracteristicas de algunos de los pokemon que habitan los valles, Atrapalos a todos🚀',
-//         img: pokedexImg,
-//         skills: ['html', 'css', 'js'],
-//         repo: 'https://github.com/barbosa0205/Pokedex',
-//         web: 'https://barbosa0205.github.io/Pokedex/',
-//     },
-//     {
-//         id: 4,
-//         title: 'Piedra Papel & Tijeras',
-//         desc: 'El clasico juego de Piedra Papel Y Tijeras con un diseño retro! 👾',
-//         img: rpsImg,
-//         skills: ['html', 'css', 'js'],
-//         repo: 'https://github.com/barbosa0205/Paper-Rock-Scsissors',
-//         web: 'https://barbosa0205.github.io/Paper-Rock-Scsissors/',
-//     },
-// ]
-
 export const Proyects = () => {
+  const [proyects, setProyects] = React.useState([])
+
+  React.useEffect(() => {
+    ;(async () => {
+      try {
+        const resp = await fetch(
+          'https://portfolio-backend-qaq3.onrender.com/api/proyects'
+        )
+        const { data } = await resp.json()
+        data.sort((a, b) => a.pos.localeCompare(b.pos))
+        setProyects(data)
+      } catch (error) {
+        console.error(error)
+      }
+    })()
+  }, [])
+
   return (
     <ProyectsContainer id='proyects' className='container'>
       <Title text='PROYECTOS' center />
 
       <ProyectGridCards>
-        {proyectsData.map((proyect, index) => {
+        {proyects.map((proyect, index) => {
           if (index <= 3) {
             return (
               <Card
-                key={index}
+                key={proyect._id}
+                id={proyect._id}
                 title={proyect.title}
-                img={proyect.img}
-                desc={proyect.desc}
-                skills={proyect.skills}
+                img={proyect.cover}
+                desc={proyect.shortDesc}
+                skills={proyect.technologies}
                 repo={proyect.repo}
                 web={proyect.web}
               />
