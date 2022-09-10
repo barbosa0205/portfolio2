@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
+import loadingImage from '../../assets/gifs/Blocks-1s-200px.gif'
 export const ProyectPage = () => {
   const params = useParams()
 
@@ -22,6 +23,10 @@ export const ProyectPage = () => {
   useEffect(() => {
     if (params.id) {
       getProyectById(params.id)
+    }
+
+    return () => {
+      setProyect(null)
     }
   }, [params])
 
@@ -94,34 +99,57 @@ export const ProyectPage = () => {
   `
 
   return (
-    proyect && (
-      <MainContainer>
-        <Container>
-          <p>{proyect.title}</p>
+    <>
+      {proyect && (
+        <MainContainer>
+          <Container>
+            <p>{proyect.title}</p>
 
-          <TecnologiesContainer>
-            <p>Tecnologias</p>
-            <TechnologiesBox>
-              {proyect.technologies.map((tech) => (
-                <i
-                  key={tech._id}
-                  className={`${tech.icon}`}
-                  title={tech.name}
-                  style={{
-                    fontSize: '3rem',
-                    color: tech.color,
-                  }}
-                ></i>
-              ))}
-            </TechnologiesBox>
-          </TecnologiesContainer>
-          {proyect.longDesc && (
-            <MarkDown
-              dangerouslySetInnerHTML={{ __html: proyect.longDesc }}
-            ></MarkDown>
-          )}
-        </Container>
-      </MainContainer>
-    )
+            <TecnologiesContainer>
+              <p>Tecnologias</p>
+              <TechnologiesBox>
+                {proyect.technologies.map((tech) => (
+                  <i
+                    key={tech._id}
+                    className={`${tech.icon}`}
+                    title={tech.name}
+                    style={{
+                      fontSize: '3rem',
+                      color: tech.color,
+                    }}
+                  ></i>
+                ))}
+              </TechnologiesBox>
+            </TecnologiesContainer>
+            {proyect.longDesc && (
+              <MarkDown
+                dangerouslySetInnerHTML={{ __html: proyect.longDesc }}
+              ></MarkDown>
+            )}
+          </Container>
+        </MainContainer>
+      )}
+
+      {!proyect && (
+        <div
+          style={{
+            width: '100%',
+            height: '100vh',
+            display: 'flex',
+            justifyContent: ' center',
+            alignItems: 'center',
+          }}
+        >
+          <img
+            src={loadingImage}
+            alt='loading'
+            style={{
+              maxWidth: '15rem',
+              maxHeight: '15rem',
+            }}
+          />
+        </div>
+      )}
+    </>
   )
 }

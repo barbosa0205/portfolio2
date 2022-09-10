@@ -4,7 +4,7 @@ import { Card } from '../../components/Card'
 import { Title } from '../../components/Title'
 import { Link } from 'react-router-dom'
 import { About } from './About'
-
+import loadingImage from '../../assets/gifs/Blocks-1s-200px.gif'
 const ProyectsContainer = styled.div`
   width: 100%;
   max-width: 120rem;
@@ -66,7 +66,7 @@ const ProyectGridCards = styled.section`
 `
 
 export const Proyects = () => {
-  const [proyects, setProyects] = React.useState([])
+  const [proyects, setProyects] = React.useState(null)
 
   React.useEffect(() => {
     ;(async () => {
@@ -80,6 +80,9 @@ export const Proyects = () => {
       } catch (error) {
         console.error(error)
       }
+      return () => {
+        setProyects(null)
+      }
     })()
   }, [])
 
@@ -88,24 +91,43 @@ export const Proyects = () => {
       <Title text='PROYECTOS' center />
 
       <ProyectGridCards>
-        {proyects.map((proyect, index) => {
-          if (index <= 3) {
-            return (
-              <Card
-                key={proyect._id}
-                id={proyect._id}
-                title={proyect.title}
-                img={proyect.cover}
-                desc={proyect.shortDesc}
-                skills={proyect.technologies}
-                repo={proyect.repo}
-                web={proyect.web}
-              />
-            )
-          } else {
-            return null
-          }
-        })}
+        {proyects &&
+          proyects.map((proyect, index) => {
+            if (index <= 3) {
+              return (
+                <Card
+                  key={proyect._id}
+                  id={proyect._id}
+                  title={proyect.title}
+                  img={proyect.cover}
+                  desc={proyect.shortDesc}
+                  skills={proyect.technologies}
+                  repo={proyect.repo}
+                  web={proyect.web}
+                />
+              )
+            } else {
+              return null
+            }
+          })}
+
+        {!proyects && (
+          <div
+            style={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: ' center',
+            }}
+          >
+            <img
+              src={loadingImage}
+              alt='loading'
+              style={{
+                maxWidth: '15rem',
+              }}
+            />
+          </div>
+        )}
       </ProyectGridCards>
       <div className='button-container'>
         <Link to='/all-proyects'>Ver más</Link>

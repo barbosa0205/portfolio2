@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Card } from '../../components/Card'
 import { Title } from '../../components/Title'
-
+import loadingImage from '../../assets/gifs/Blocks-1s-200px.gif'
 import { proyectsData } from '../../helpers/proyectsData'
 
 const AppContainer = styled.div`
@@ -91,7 +91,7 @@ export const ProyectsPage = () => {
         <Title text='Todos los proyectos' center />
         <GridContainer>
           {proyects &&
-            proyects.map((proyect, index) => (
+            proyects.map((proyect) => (
               <Card
                 key={proyect._id}
                 id={proyect._id}
@@ -104,6 +104,27 @@ export const ProyectsPage = () => {
               />
             ))}
         </GridContainer>
+        {!proyects && (
+          <div
+            style={{
+              width: '100%',
+              height: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: ' center',
+              alignItems: 'center',
+            }}
+          >
+            <img
+              src={loadingImage}
+              alt='loading'
+              style={{
+                maxWidth: '15rem',
+                maxHeight: '15rem',
+              }}
+            />
+          </div>
+        )}
         <div className='back-container'>
           <Link to='/'>
             <i className='fas fa-arrow-left'></i>

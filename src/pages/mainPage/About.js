@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { Title } from '../../components/Title'
 
 import profileImg from '../../assets/images/profile.png'
+import loadingImage from '../../assets/gifs/Blocks-1s-200px.gif'
 import { Skill } from '../../components/Skill'
-
 const AboutContainer = styled.div`
   min-width: 100%;
   display: flex;
@@ -109,21 +109,25 @@ const TecSkills = styled.div`
 `
 
 export const About = () => {
-  const [skills, setSkills] = useState([])
+  const [skills, setSkills] = useState(null)
 
   useEffect(() => {
     ;(async () => {
       try {
-        const resp = await fetch(
-          'https://portfolio-backend-qaq3.onrender.com/api/technologies'
-        )
-        const { data } = await resp.json()
-        setSkills(data)
+        if (!skills) {
+          const resp = await fetch(
+            'https://portfolio-backend-qaq3.onrender.com/api/technologies'
+          )
+          const { data } = await resp.json()
+          setSkills(data)
+        } else {
+          return
+        }
       } catch (error) {
-        console.log('error: ', error.message)
+        setSkills([])
       }
     })()
-  }, [])
+  }, [skills])
 
   return (
     <AboutContainer id='about' className='container'>
@@ -151,6 +155,23 @@ export const About = () => {
                 />
               ))}
           </div>
+          {!skills && (
+            <div
+              style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: ' center',
+              }}
+            >
+              <img
+                src={loadingImage}
+                alt='loading'
+                style={{
+                  maxWidth: '15rem',
+                }}
+              />
+            </div>
+          )}
           <div className='buttons-container'>
             <a href='/CV.pdf' download>
               Descargar CV
