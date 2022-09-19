@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 const SkillContainer = styled.div`
@@ -16,6 +17,7 @@ const SkillContainer = styled.div`
     width: 100%;
     font-weight: bold;
     font-size: 1.4rem;
+    cursor: pointer;
     & > i {
       font-weight: 500;
       font-size: 3.5rem;
@@ -23,10 +25,14 @@ const SkillContainer = styled.div`
   }
 `
 
-export const Skill = ({ iconClass, name, color }) => {
+export const Skill = ({ id, iconClass, name, color }) => {
+  let history = useHistory()
   return (
     <SkillContainer>
-      <div className='icon-name-container'>
+      <div
+        onClick={() => history.push(`/technology/${id}`)}
+        className='icon-name-container'
+      >
         <i
           className={`${iconClass}`}
           style={{

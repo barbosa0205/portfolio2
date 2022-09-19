@@ -5,6 +5,8 @@ import { Title } from '../../components/Title'
 import profileImg from '../../assets/images/profile.png'
 import loadingImage from '../../assets/gifs/Blocks-1s-200px.gif'
 import { Skill } from '../../components/Skill'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 const AboutContainer = styled.div`
   min-width: 100%;
   display: flex;
@@ -149,6 +151,7 @@ export const About = () => {
               skills.map((skill) => (
                 <Skill
                   key={skill._id}
+                  id={skill._id}
                   iconClass={skill.icon}
                   name={skill.name}
                   color={skill.color}
@@ -156,21 +159,18 @@ export const About = () => {
               ))}
           </div>
           {!skills && (
-            <div
+            <Skeleton
+              count={18}
+              height={'6rem'}
+              width={'6rem'}
+              baseColor='#dcdcdc'
+              borderRadius={'1.5rem'}
+              inline
               style={{
-                width: '100%',
-                display: 'flex',
-                justifyContent: ' center',
+                margin: '1rem',
               }}
-            >
-              <img
-                src={loadingImage}
-                alt='loading'
-                style={{
-                  maxWidth: '15rem',
-                }}
-              />
-            </div>
+              containerClassName={'skeletonWrap'}
+            />
           )}
           <div className='buttons-container'>
             <a href='/CV.pdf' download>

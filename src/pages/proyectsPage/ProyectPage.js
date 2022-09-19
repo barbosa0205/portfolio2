@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 import loadingImage from '../../assets/gifs/Blocks-1s-200px.gif'
 export const ProyectPage = () => {
-  const params = useParams()
-
+  let params = useParams()
+  let history = useHistory()
   const [proyect, setProyect] = useState(null)
 
   const getProyectById = async (id) => {
     try {
+      // const resp = await fetch(
+      //   `https://portfolio-backend-qaq3.onrender.com/api/proyect?id=${id}`
+      // )
       const resp = await fetch(
         `https://portfolio-backend-qaq3.onrender.com/api/proyect?id=${id}`
       )
+      if (resp.status === 404) {
+        history.push('/404')
+      }
       const { data } = await resp.json()
       setProyect(data)
     } catch (err) {
-      console.log(err)
+      history.push('/server-error')
     }
   }
 
@@ -29,6 +35,22 @@ export const ProyectPage = () => {
       setProyect(null)
     }
   }, [params])
+
+  const BackContainer = styled.div`
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    margin-top: 1rem;
+
+    & > i {
+      font-size: 1.6rem;
+      padding: 0 1.2rem;
+      background: #232323;
+      color: #ffff;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+  `
 
   const TecnologiesContainer = styled.div`
     width: 80%;
@@ -101,33 +123,41 @@ export const ProyectPage = () => {
   return (
     <>
       {proyect && (
-        <MainContainer>
-          <Container>
-            <p>{proyect.title}</p>
+        <>
+          <BackContainer>
+            <i
+              onClick={() => history.push('/')}
+              className='ri-arrow-left-line'
+            ></i>
+          </BackContainer>
+          <MainContainer>
+            <Container>
+              <p>{proyect.title}</p>
 
-            <TecnologiesContainer>
-              <p>Tecnologias</p>
-              <TechnologiesBox>
-                {proyect.technologies.map((tech) => (
-                  <i
-                    key={tech._id}
-                    className={`${tech.icon}`}
-                    title={tech.name}
-                    style={{
-                      fontSize: '3rem',
-                      color: tech.color,
-                    }}
-                  ></i>
-                ))}
-              </TechnologiesBox>
-            </TecnologiesContainer>
-            {proyect.longDesc && (
-              <MarkDown
-                dangerouslySetInnerHTML={{ __html: proyect.longDesc }}
-              ></MarkDown>
-            )}
-          </Container>
-        </MainContainer>
+              <TecnologiesContainer>
+                <p>Tecnologias</p>
+                <TechnologiesBox>
+                  {proyect.technologies.map((tech) => (
+                    <i
+                      key={tech._id}
+                      className={`${tech.icon}`}
+                      title={tech.name}
+                      style={{
+                        fontSize: '3rem',
+                        color: tech.color,
+                      }}
+                    ></i>
+                  ))}
+                </TechnologiesBox>
+              </TecnologiesContainer>
+              {proyect.longDesc && (
+                <MarkDown
+                  dangerouslySetInnerHTML={{ __html: proyect.longDesc }}
+                ></MarkDown>
+              )}
+            </Container>
+          </MainContainer>
+        </>
       )}
 
       {!proyect && (

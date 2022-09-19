@@ -5,6 +5,9 @@ import { Title } from '../../components/Title'
 import { Link } from 'react-router-dom'
 import { About } from './About'
 import loadingImage from '../../assets/gifs/Blocks-1s-200px.gif'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 const ProyectsContainer = styled.div`
   width: 100%;
   max-width: 120rem;
@@ -65,6 +68,15 @@ const ProyectGridCards = styled.section`
   align-items: center;
 `
 
+const Container = styled.div`
+  width: 100%;
+  @media (min-width: 1024px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
 export const Proyects = () => {
   const [proyects, setProyects] = React.useState(null)
 
@@ -90,45 +102,43 @@ export const Proyects = () => {
     <ProyectsContainer id='proyects' className='container'>
       <Title text='PROYECTOS' center />
 
-      <ProyectGridCards>
-        {proyects &&
-          proyects.map((proyect, index) => {
-            if (index <= 3) {
-              return (
-                <Card
-                  key={proyect._id}
-                  id={proyect._id}
-                  title={proyect.title}
-                  img={proyect.cover}
-                  desc={proyect.shortDesc}
-                  skills={proyect.technologies}
-                  repo={proyect.repo}
-                  web={proyect.web}
-                />
-              )
-            } else {
-              return null
-            }
-          })}
-
-        {!proyects && (
-          <div
-            style={{
-              width: '100%',
-              display: 'flex',
-              justifyContent: ' center',
-            }}
-          >
-            <img
-              src={loadingImage}
-              alt='loading'
-              style={{
-                maxWidth: '15rem',
-              }}
-            />
-          </div>
-        )}
-      </ProyectGridCards>
+      <Container>
+        <ProyectGridCards>
+          {proyects &&
+            proyects.map((proyect, index) => {
+              if (index <= 3) {
+                return (
+                  <Card
+                    key={proyect._id}
+                    id={proyect._id}
+                    title={proyect.title}
+                    img={proyect.cover}
+                    desc={proyect.shortDesc}
+                    skills={proyect.technologies}
+                    repo={proyect.repo}
+                    web={proyect.web}
+                  />
+                )
+              } else {
+                return null
+              }
+            })}
+        </ProyectGridCards>
+      </Container>
+      {!proyects && (
+        <Skeleton
+          count={4}
+          height={'30rem'}
+          width={'40rem'}
+          baseColor='#dcdcdc'
+          borderRadius={'1.5rem'}
+          inline
+          style={{
+            margin: '1rem',
+          }}
+          containerClassName={'skeletonWrap'}
+        />
+      )}
       <div className='button-container'>
         <Link to='/all-proyects'>Ver más</Link>
       </div>
