@@ -44,6 +44,11 @@ body {
   width: 100%;
 }
 
+.skeletonProyect {
+  min-width: 28rem;
+  max-width: 40rem;
+}
+
 .skeletonWrap {
   width: 100%;
   display: flex;

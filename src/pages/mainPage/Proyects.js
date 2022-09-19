@@ -127,9 +127,9 @@ export const Proyects = () => {
       </Container>
       {!proyects && (
         <Skeleton
+          className='skeletonProyect'
           count={4}
           height={'30rem'}
-          width={'40rem'}
           baseColor='#dcdcdc'
           borderRadius={'1.5rem'}
           inline
