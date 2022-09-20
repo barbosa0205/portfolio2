@@ -57,6 +57,15 @@ body {
   align-items: center;
   margin-top: 5rem;
 }
+.skeletonWrap2 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  padding-bottom: 5rem;
+}
 
 @media (min-width: 600px) {
   .container {

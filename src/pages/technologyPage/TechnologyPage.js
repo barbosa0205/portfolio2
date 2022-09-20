@@ -164,18 +164,43 @@ export const TechnologyPage = () => {
           ))}
         </ProyectsSection>
       ) : (
-        <Skeleton
-          count={4}
-          height={'30rem'}
-          width={'40rem'}
-          baseColor='#dcdcdc'
-          borderRadius={'1.5rem'}
-          inline
-          style={{
-            margin: '1rem',
-          }}
-          containerClassName={'skeletonWrap'}
-        />
+        <>
+          <Skeleton
+            height={'10rem'}
+            width={'80%'}
+            baseColor='#dcdcdc'
+            borderRadius={'1.5rem'}
+            inline
+            style={{
+              margin: '1rem',
+            }}
+            containerClassName={'skeletonWrap'}
+          />
+          <Skeleton
+            count={2}
+            height={'30rem'}
+            width={'40rem'}
+            baseColor='#dcdcdc'
+            borderRadius={'1.5rem'}
+            inline
+            style={{
+              margin: '1rem',
+            }}
+            containerClassName={'skeletonWrap'}
+          />
+          <Skeleton
+            count={3}
+            height={'5rem'}
+            width={'5rem'}
+            baseColor='#dcdcdc'
+            borderRadius={'1.5rem'}
+            inline
+            style={{
+              margin: '1rem',
+            }}
+            containerClassName={'skeletonWrap'}
+          />
+        </>
       )}
     </MainContainer>
   )

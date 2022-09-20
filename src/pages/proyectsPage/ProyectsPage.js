@@ -5,6 +5,8 @@ import { Card } from '../../components/Card'
 import { Title } from '../../components/Title'
 import loadingImage from '../../assets/gifs/Blocks-1s-200px.gif'
 import { proyectsData } from '../../helpers/proyectsData'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const AppContainer = styled.div`
   width: 100%;
@@ -105,25 +107,18 @@ export const ProyectsPage = () => {
             ))}
         </GridContainer>
         {!proyects && (
-          <div
+          <Skeleton
+            className='skeletonProyect'
+            count={6}
+            height={'30rem'}
+            baseColor='#dcdcdc'
+            borderRadius={'1.5rem'}
+            inline
             style={{
-              width: '100%',
-              height: '100vh',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: ' center',
-              alignItems: 'center',
+              margin: '1rem',
             }}
-          >
-            <img
-              src={loadingImage}
-              alt='loading'
-              style={{
-                maxWidth: '15rem',
-                maxHeight: '15rem',
-              }}
-            />
-          </div>
+            containerClassName={'skeletonWrap'}
+          />
         )}
         <div className='back-container'>
           <Link to='/'>

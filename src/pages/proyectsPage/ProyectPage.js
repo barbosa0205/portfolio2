@@ -3,6 +3,9 @@ import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 import loadingImage from '../../assets/gifs/Blocks-1s-200px.gif'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 export const ProyectPage = () => {
   let params = useParams()
   let history = useHistory()
@@ -119,6 +122,30 @@ export const ProyectPage = () => {
       margin: 0 auto;
     }
   `
+  const ContainerLoading = styled.div`
+    width: 100%;
+    height: 100%;
+    background: #fdfdfd;
+    margin-bottom: 5rem;
+    & > p {
+      font-size: 3.5rem;
+      font-weight: 600;
+      margin: 2rem 0;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    & > img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    @media (min-width: 1280px) {
+      width: 80%;
+      margin: 0 auto;
+    }
+  `
 
   return (
     <>
@@ -161,24 +188,62 @@ export const ProyectPage = () => {
       )}
 
       {!proyect && (
-        <div
-          style={{
-            width: '100%',
-            height: '100vh',
-            display: 'flex',
-            justifyContent: ' center',
-            alignItems: 'center',
-          }}
-        >
-          <img
-            src={loadingImage}
-            alt='loading'
+        <>
+          <Skeleton
+            width={'8rem'}
+            height={'5rem'}
+            baseColor='#dcdcdc'
+            borderRadius={'1.5rem'}
+            inline
             style={{
-              maxWidth: '15rem',
-              maxHeight: '15rem',
+              margin: '3rem 0 0 1rem',
             }}
           />
-        </div>
+          <ContainerLoading>
+            <Skeleton
+              width={'60%'}
+              height={'5rem'}
+              baseColor='#dcdcdc'
+              borderRadius={'1.5rem'}
+              inline
+              style={{
+                margin: '4rem 0 0 0',
+              }}
+              containerClassName={'skeletonWrap'}
+            />
+            <Skeleton
+              width={'70%'}
+              height={'20rem'}
+              baseColor='#dcdcdc'
+              borderRadius={'1.5rem'}
+              inline
+              style={{
+                margin: '2rem 0 0 0',
+              }}
+              containerClassName={'skeletonWrap'}
+            />
+            <Skeleton
+              width={'70%'}
+              height={'50rem'}
+              baseColor='#dcdcdc'
+              borderRadius={'1.5rem'}
+              inline
+              containerClassName={'skeletonWrap'}
+            />
+            <Skeleton
+              width={'70%'}
+              height={'3rem'}
+              count={3}
+              baseColor='#dcdcdc'
+              borderRadius={'1.5rem'}
+              inline
+              style={{
+                margin: '.5rem 0',
+              }}
+              containerClassName={'skeletonWrap2'}
+            />
+          </ContainerLoading>
+        </>
       )}
     </>
   )
