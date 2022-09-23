@@ -111,6 +111,8 @@ const TecSkills = styled.div`
 `
 
 export const About = () => {
+  /*CODIGO DE FRONT END*/
+
   const [skills, setSkills] = useState(null)
 
   useEffect(() => {

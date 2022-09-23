@@ -78,6 +78,8 @@ const Container = styled.div`
 `
 
 export const Proyects = () => {
+  /*CODIGO DE FRONT END*/
+
   const [proyects, setProyects] = React.useState(null)
 
   React.useEffect(() => {
