@@ -1,5 +1,6 @@
+import Link from 'next/link'
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -25,7 +26,7 @@ export default function ServerErrorPage() {
           padding: '.5rem 1.5rem',
           borderRadius: '.5rem',
         }}
-        to={'/'}
+        href={'/'}
       >
         Ir a Inicio
       </Link>
