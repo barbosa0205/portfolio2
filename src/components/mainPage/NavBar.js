@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Link from 'next/link'
+
 const NavBarMovil = styled.nav`
   display: flex;
   justify-content: flex-end;
@@ -152,26 +152,24 @@ export const NavBar = () => {
         <NightContainer />
         <LinksContainer>
           <LinkContainer>
-            <Link href='#home'>
-              <LinkStyle onClick={() => setIsOpen(!isOpen)}>Inicio</LinkStyle>
-            </Link>
+            <LinkStyle href='#home' onClick={() => setIsOpen(!isOpen)}>
+              Inicio
+            </LinkStyle>
           </LinkContainer>
           <LinkContainer>
-            <Link href='#about'>
-              <LinkStyle onClick={() => setIsOpen(!isOpen)}>Sobre Mi</LinkStyle>
-            </Link>
+            <LinkStyle href='#about' onClick={() => setIsOpen(!isOpen)}>
+              Sobre Mi
+            </LinkStyle>
           </LinkContainer>
           <LinkContainer>
-            <Link href='#proyects'>
-              <LinkStyle onClick={() => setIsOpen(!isOpen)}>
-                Proyectos
-              </LinkStyle>
-            </Link>
+            <LinkStyle href='#proyects' onClick={() => setIsOpen(!isOpen)}>
+              Proyectos
+            </LinkStyle>
           </LinkContainer>
           <LinkContainer>
-            <Link href='#contact'>
-              <LinkStyle onClick={() => setIsOpen(!isOpen)}>Contacto</LinkStyle>
-            </Link>
+            <LinkStyle href='#contact' onClick={() => setIsOpen(!isOpen)}>
+              Contacto
+            </LinkStyle>
           </LinkContainer>
         </LinksContainer>
       </Sidebar>
