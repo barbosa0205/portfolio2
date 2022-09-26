@@ -1,5 +1,6 @@
+import Link from 'next/link'
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 import styled from 'styled-components'
 
 const ProyectCard = styled.article`
@@ -131,14 +132,14 @@ export const Card = ({ id, title, img, desc, skills, repo, web }) => {
       </Info>
       <Footer>
         <Skills>
-          {skills.map((skill) => {
+          {skills.map((skill, index) => {
             return (
               <i
                 className={`${skill.icon} `}
                 style={{
                   color: `${skill.color}`,
                 }}
-                key={skill._id}
+                key={index}
                 title={skill.name}
               ></i>
             )
@@ -161,7 +162,7 @@ export const Card = ({ id, title, img, desc, skills, repo, web }) => {
           >
             Web
           </a>
-          <Link title={`ver más sobre el proyecto`} to={`/proyect/${id}`}>
+          <Link title={`ver más sobre el proyecto`} href={`/proyect/${id}`}>
             Más
           </Link>
         </Links>

@@ -1,5 +1,6 @@
+import { useRouter } from 'next/router'
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+
 import styled from 'styled-components'
 
 const SkillContainer = styled.div`
@@ -26,11 +27,11 @@ const SkillContainer = styled.div`
 `
 
 export const Skill = ({ id, iconClass, name, color }) => {
-  let history = useHistory()
+  const router = useRouter()
   return (
     <SkillContainer>
       <div
-        onClick={() => history.push(`/technology/${id}`)}
+        onClick={() => router.push(`/technology/${id}`)}
         className='icon-name-container'
       >
         <i

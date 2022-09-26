@@ -1,6 +1,8 @@
-:root {
-  /* FONTS */
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
   --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --title-font: 'Rubik Mono One', sans-serif;
 
@@ -14,15 +16,8 @@
   --high-dark: #202020;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 html {
   font-size: 62.5%;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -42,6 +37,11 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.profileImage {
+  width: 150px;
+  border-radius: 50%;
 }
 
 .skeletonProyect {
@@ -65,6 +65,12 @@ body {
   align-items: center;
   margin-top: 5rem;
   padding-bottom: 5rem;
+}
+
+.contactWave {
+  width: 100%;
+  position: relative;
+  top: 10px;
 }
 
 @media (min-width: 600px) {

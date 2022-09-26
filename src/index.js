@@ -1,11 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { PortfolioApp } from './PortfolioApp'
+import PortfolioApp from './pages/index'
 import './index.css'
-import { AppRouter } from './router/AppRouter'
-ReactDOM.render(
-  <AppRouter>
-    <PortfolioApp />
-  </AppRouter>,
-  document.getElementById('root')
-)
+
+ReactDOM.render(<PortfolioApp />, document.getElementById('root'))

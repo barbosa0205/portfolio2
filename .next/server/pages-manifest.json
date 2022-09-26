@@ -1,0 +1,12 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/proyect/[id]": "pages/proyect/[id].js",
+  "/api/technologies": "pages/api/technologies.js",
+  "/": "pages/index.js",
+  "/api/proyect": "pages/api/proyect.js",
+  "/technology/[id]": "pages/technology/[id].js",
+  "/api/technology": "pages/api/technology.js",
+  "/api/proyects": "pages/api/proyects.js"
+}
