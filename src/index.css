@@ -1,11 +1,4 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-  --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --title-font: 'Rubik Mono One', sans-serif;
-
+:root {
   /* COLORS */
   --main-white: #fdfdfd;
   --main-gray: #6d6b6b;
@@ -14,6 +7,15 @@
   --light-gray: #d1d1d1;
   --main-dark: #303030;
   --high-dark: #202020;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  --main-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --title-font: 'Rubik Mono One', sans-serif;
 }
 
 html {
