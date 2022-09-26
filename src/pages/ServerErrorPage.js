@@ -11,7 +11,7 @@ const Container = styled.div`
   align-items: center;
 `
 
-const ServerErrorPage = () => {
+export default function ServerErrorPage() {
   return (
     <Container>
       <h1>500</h1>
@@ -32,5 +32,3 @@ const ServerErrorPage = () => {
     </Container>
   )
 }
-
-export default ServerErrorPage
