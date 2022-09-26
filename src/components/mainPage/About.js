@@ -179,7 +179,7 @@ export const About = () => {
             />
           )}
           <div className='buttons-container'>
-            <a href='/CV.pdf' download>
+            <a href='/CV-.pdf' download>
               Descargar CV
             </a>
           </div>
