@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Wave from '../../assets/svg/wave.svg'
+import { EmailForm } from '../EmailForm'
+import { Modal } from '../Modal'
 // import { EmailForm } from '../../components/EmailForm'
 // import { Modal } from '../../components/Modal'
 
@@ -32,9 +34,6 @@ const Footer = styled.footer`
 
     & a {
       text-decoration: none;
-      & > i {
-        color: #31ba45;
-      }
     }
 
     & i {
@@ -63,31 +62,34 @@ export const Contact = () => {
       <Footer id='contact'>
         <p>CONTACTAME</p>
         <div className='footer-icons'>
+          <a href={showEmailForm ? '#sendemail' : '#contact'}>
+            <i
+              style={{
+                fontSize: '4.5rem',
+              }}
+              className={`${
+                showEmailForm ? 'ri-mail-open-line' : 'ri-mail-line'
+              }`}
+              onClick={() => setShowEmailForm(!showEmailForm)}
+            ></i>
+          </a>
+
           <a
             href='https://wa.me/5218683845391?text=Me%20gustaría%20ponerme%20en%20contacto%20contigo'
             rel='noreferrer'
             target='_blank'
           >
-            <i className={`ri-whatsapp-line`}></i>
+            <i
+              style={{
+                fontSize: '4.5rem',
+                color: '#31da45',
+              }}
+              className={`ri-whatsapp-line`}
+            ></i>
           </a>
-
-          {/* <i
-                        className={`${
-                            showEmailForm ? 'ri-mail-open-line' : 'ri-mail-line'
-                        }`}
-                        onClick={() => setShowEmailForm(!showEmailForm)}
-                    ></i> */}
         </div>
+        {showEmailForm && <EmailForm showEmailForm={showEmailForm} />}
       </Footer>
-
-      {/* {showEmailForm && (
-                <Modal
-                    showEmailForm={showEmailForm}
-                    setShowEmailForm={setShowEmailForm}
-                >
-                    {<EmailForm showEmailForm={showEmailForm} />}
-                </Modal>
-            )} */}
     </FooterContainer>
   )
 }
