@@ -12,7 +12,7 @@ const NavBarMovil = styled.nav`
   left: 0;
   background-color: #ffffff30;
   backdrop-filter: blur(2px);
-
+  z-index: 99;
   @media (min-width: 600px) {
     display: none;
   }

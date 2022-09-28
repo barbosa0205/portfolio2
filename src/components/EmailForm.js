@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import styled from 'styled-components'
 import emailjs from 'emailjs-com'
 import { useState } from 'react'
+import { useEffect } from 'react'
 
 const EmailFormContainer = styled.div`
   display: flex;
@@ -68,6 +69,15 @@ const EmailFormContainer = styled.div`
       width: 20rem;
       border-radius: 0.3rem;
     }
+
+    .messageSendingCorrectly {
+      color: #fdfdfd;
+      background: #008f39;
+      font-size: 1.8rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
   }
 `
 
@@ -81,6 +91,8 @@ export const EmailForm = ({ showEmailForm }) => {
   })
 
   const [error, setError] = useState('')
+
+  const [alertForm, setAlertForm] = useState(false)
 
   const verifyForm = () => {
     const { user_name, user_email, message } = formData
@@ -113,13 +125,19 @@ export const EmailForm = ({ showEmailForm }) => {
       )
       .then(
         (result) => {
-          console.log(result.text)
+          setAlertForm(true)
         },
         (error) => {
           console.log(error.text)
         }
       )
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAlertForm(false)
+    }, 3000)
+  }, [alertForm])
 
   return (
     <EmailFormContainer onClick={(event) => event.stopPropagation()}>
@@ -158,6 +176,11 @@ export const EmailForm = ({ showEmailForm }) => {
         {error && <p className='error'>{error}</p>}
 
         <input className='buttonSubmit' type='submit' value='Send' />
+        {alertForm && (
+          <p className='messageSendingCorrectly'>
+            mensaje enviado correctamente
+          </p>
+        )}
       </form>
     </EmailFormContainer>
   )
