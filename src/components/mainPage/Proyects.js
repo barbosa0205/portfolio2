@@ -88,7 +88,7 @@ export const Proyects = () => {
         const resp = await fetch('/api/proyects')
         const { data } = await resp.json()
 
-        data.sort((a, b) => a.pos.localeCompare(b.pos))
+        await data.sort((a, b) => a.pos.localeCompare(b.pos))
         setProyects(data)
       } catch (error) {
         console.error(error)

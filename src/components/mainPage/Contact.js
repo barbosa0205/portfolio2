@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import * as React from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import Wave from '../../assets/svg/wave.svg'
 import { EmailForm } from '../EmailForm'
 import { Modal } from '../Modal'
-// import { EmailForm } from '../../components/EmailForm'
-// import { Modal } from '../../components/Modal'
 
 const FooterContainer = styled.section`
   grid-area: contact;
@@ -56,6 +55,9 @@ const Footer = styled.footer`
 
 export const Contact = () => {
   const [showEmailForm, setShowEmailForm] = useState(false)
+
+  //Map
+
   return (
     <FooterContainer>
       <Wave className='contactWave' />
