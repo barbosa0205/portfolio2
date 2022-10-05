@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Title } from '../Title'
 import MainLogo from 'src/assets/svg/Coding-rafiki-black.svg'
-import Image from 'next/image'
 
 const HomeContainer = styled.div`
   display: flex;
