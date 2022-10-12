@@ -13,7 +13,7 @@ export default async function handler(req, res) {
           data: proyects,
         })
       } catch (err) {
-        console.log(err)
+        return new Error('No se obtuvieron los proyectos')
       }
       break
     default:
