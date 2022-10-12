@@ -143,10 +143,13 @@ export const About = () => {
           }}
         />
         <p>
-          Soy un Programador Web Frontend con conocimientos en Backend, desde el
-          2020 me aventure a estudiar de manera autodidacta las diferentes
+          Soy un Programador Web Frontend con conocimientos en Backend.
+          <br />
+          Desde el 2020 me aventure a estudiar de manera autodidacta las
           tecnologias web para crear aplicaciones profesionales de principio a
-          fin.
+          fin implementando diseños como <b>Responsive Design</b>, patrones de
+          diseño modernos y metodologias agiles como <b>SCRUM</b> Y <b>SOLID</b>
+          .
           <br />
           <br />
           Utilizo el stack <b>MERN</b>{' '}
