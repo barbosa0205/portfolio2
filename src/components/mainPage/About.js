@@ -145,7 +145,14 @@ export const About = () => {
         <p>
           Soy un Programador Web Frontend con conocimientos en Backend, desde el
           2020 me aventure a estudiar de manera autodidacta las diferentes
-          tecnologias web para crear aplicaciones profesionales.
+          tecnologias web para crear aplicaciones profesionales de principio a
+          fin.
+          <br />
+          <br />
+          Utilizo el stack <b>MERN</b>{' '}
+          <small>(MongoDb, Express, React, NodeJS)</small> para crear
+          aplicaciones web que se comuniquen con el servidor utilizando{' '}
+          <b>API REST</b>
           <br />
           <br />
         </p>
