@@ -3,6 +3,7 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/api/technologies": "pages/api/technologies.js",
-  "/api/proyects": "pages/api/proyects.js"
+  "/api/proyects": "pages/api/proyects.js",
+  "/404": "pages/404.js",
+  "/api/technologies": "pages/api/technologies.js"
 }

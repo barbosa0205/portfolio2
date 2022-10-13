@@ -82,21 +82,23 @@ export const Proyects = () => {
 
   const [proyects, setProyects] = React.useState(null)
 
-  React.useEffect(() => {
-    ;(async () => {
-      try {
-        const resp = await fetch('/api/proyects')
-        const { data } = await resp.json()
+  const getProyects = async () => {
+    try {
+      const resp = await fetch('/api/proyects')
+      const { data } = await resp.json()
 
-        await data.sort((a, b) => a.pos.localeCompare(b.pos))
-        setProyects(data)
-      } catch (error) {
-        console.error(error)
-      }
-      return () => {
-        setProyects(null)
-      }
-    })()
+      const dataSort = data.sort((a, b) => a.pos.localeCompare(b.pos))
+      setProyects(dataSort)
+    } catch (error) {
+      getProyects()
+    }
+    return () => {
+      setProyects(null)
+    }
+  }
+
+  React.useEffect(() => {
+    getProyects()
   }, [])
 
   return (
