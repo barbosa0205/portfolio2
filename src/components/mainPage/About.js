@@ -148,7 +148,7 @@ export const About = () => {
           Desde el 2020 me aventure a estudiar de manera autodidacta las
           tecnologias web para crear aplicaciones profesionales de principio a
           fin implementando diseños como <b>Responsive Design</b>, patrones de
-          diseño modernos y metodologias agiles como <b>SCRUM</b> Y <b>SOLID</b>
+          diseño modernos y metodologias agiles como <b>SOLID</b>
           .
           <br />
           <br />
