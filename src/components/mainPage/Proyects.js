@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Card } from '../Card'
 import { Title } from '../Title'
@@ -82,6 +82,8 @@ export const Proyects = () => {
 
   const [proyects, setProyects] = React.useState(null)
 
+  const [noProyects, setNoProyects] = useState(false)
+
   const getProyects = async () => {
     try {
       const resp = await fetch('/api/proyects')
@@ -90,7 +92,7 @@ export const Proyects = () => {
       const dataSort = data.sort((a, b) => a.pos.localeCompare(b.pos))
       setProyects(dataSort)
     } catch (error) {
-      getProyects()
+      setNoProyects(true)
     }
     return () => {
       setProyects(null)
@@ -100,6 +102,11 @@ export const Proyects = () => {
   React.useEffect(() => {
     getProyects()
   }, [])
+
+  React.useEffect(() => {
+    getProyects()
+    setNoProyects(false)
+  }, [noProyects])
 
   return (
     <ProyectsContainer id='proyects' className='container'>

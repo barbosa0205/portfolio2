@@ -2,8 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/api/proyects": "pages/api/proyects.js",
+  "/api/technologies": "pages/api/technologies.js",
   "/404": "pages/404.js",
-  "/api/technologies": "pages/api/technologies.js"
+  "/": "pages/index.js",
+  "/api/proyects": "pages/api/proyects.js"
 }
